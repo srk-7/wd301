@@ -27,7 +27,9 @@ class TaskForm extends React.Component<TaskFormProps, TaskFormState> {
       dueDate: this.state.dueDate,
     };
     this.props.addTask(newTask);
-    this.setState({title: "",description: "",dueDate: ""});
+    this.setState({title: ""});
+    this.setState({description: ""});
+    this.setState({dueDate: ""});
   };
   titleChanged: React.ChangeEventHandler<HTMLInputElement> = (event) => {
     console.log(`${event.target.value}`);
