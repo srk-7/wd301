@@ -13,8 +13,8 @@ class TaskForm extends React.Component<TaskFormProps, TaskFormState> {
     super(props);
     this.state = {
       title: "",
-      dueDate:"",
-      description:"",
+      dueDate: "",
+      description: "",
     }
   }
   addTask: React.FormEventHandler<HTMLFormElement> = (event) => {
