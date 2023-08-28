@@ -1,5 +1,7 @@
 import React from "react";
 import { TaskItem } from "./types";
+import "./TaskCard.css"
+
 interface TaskFormProps {
   addTask: (task: TaskItem) => void;
 }
