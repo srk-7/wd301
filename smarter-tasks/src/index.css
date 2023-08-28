@@ -1,3 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body
+{
+    margin: 0;
+    display: flex;
+    min-width: 120px;
+    min-height: 100vh;
+    background-color: oldlace;
+}
+
+button 
+{
+    background-color: black;
+    color:black;
+    cursor: pointer;
+    border-radius: 100px;
+    border: 2px solid black;
+    padding: 1em 1em;
+    font-size: 1em;
+}
+
+button:hover 
+{
+    color: gray;
+}
+button:focus,
+button:focus-visible {
+  outline: 1px auto -webkit-focus-ring-color;
+}

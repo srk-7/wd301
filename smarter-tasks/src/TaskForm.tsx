@@ -47,9 +47,9 @@ class TaskForm extends React.Component<TaskFormProps, TaskFormState> {
   render(){
     return (
         <form onSubmit={this.addTask}>
-        <input id="todoTitle" type="text" placeholder="title" value={this.state.title} onChange={this.titleChanged} required/>
-        <input  id="todoDescription" name="todoDescription" placeholder="description" onChange={this.descriptionChanged} type="text" required />
-        <input id="todoDueDate" name="todoDueDate"  type="date" onChange={this.dueDateChanged} required /> 
+        <input id="todoTitle" type="text" placeholder="Title" value={this.state.title} onChange={this.titleChanged} required/><br></br><br></br>
+        <input  id="todoDescription" name="todoDescription" placeholder="Description" onChange={this.descriptionChanged} type="text" required /><br></br><br></br>
+        <input id="todoDueDate" name="todoDueDate"  type="date" onChange={this.dueDateChanged} required /> <br></br><br></br>
         <button id="addTaskButton" type="submit">Add item</button>
       </form>
     )
