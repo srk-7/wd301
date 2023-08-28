@@ -20,23 +20,35 @@ class TaskForm extends React.Component<TaskFormProps, TaskFormState> {
   addTask: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
     const newTask = {
-      title: "",
-      description: "",
-      dueDate: "",
-      
+      title: this.state.title,
+      description: this.state.description,
+      dueDate: this.state.dueDate,
     };
     this.props.addTask(newTask);
-    this.setState({ title: "" });
+    this.setState({title: "",description: "",dueDate:""});
   };
+  titleChanged: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+    console.log(`${event.target.value}`);
+    this.setState({ title: event.target.value });
+  };
+  descriptionChanged: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+    console.log(`${event.target.value}`);
+    this.setState({ description: event.target.value });
+  };
+  dueDateChanged: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+    console.log(`${event.target.value}`);
+    this.setState({ dueDate: event.target.value });
+  };
+
   render(){
     return (
-      <form onSubmit={this.addTask}>
-        <input type="text" />
-        <input  id="todoDescription" name="todoDescription" type="text" required />
-        <input id="todoDueDate" name="todoDueDate" type="date" required />
-        <button id="addTaskButton" type="submit">  Add item</button>
+        <form onSubmit={this.addTask}>
+        <input type="text" placeholder="title" value={this.state.title} onChange={this.titleChanged} required/>
+        <input  id="todoDescription" name="todoDescription" placeholder="description" onChange={this.descriptionChanged} type="text" required />
+        <input id="todoDueDate" name="todoDueDate"  type="date" onChange={this.dueDateChanged} required /> 
+        <button id="addTaskButton" type="submit"> Add item</button>
       </form>
     )
   }
 }
- export default TaskForm;
+export default TaskForm;
