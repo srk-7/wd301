@@ -4,21 +4,26 @@ interface TaskFormProps {
   addTask: (task: TaskItem) => void;
 }
 interface TaskFormState {
-}
-interface TaskFormState {
     title: string;
-  }
+    dueDate: string;
+    description: string;
+}
 class TaskForm extends React.Component<TaskFormProps, TaskFormState> {
   constructor(props: TaskFormProps) {
     super(props);
     this.state = {
-      title: ""
+      title: "",
+      dueDate:"",
+      description:"",
     }
   }
   addTask: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
     const newTask = {
-      title: this.state.title,
+      title: "",
+      description: "",
+      dueDate: "",
+      
     };
     this.props.addTask(newTask);
     this.setState({ title: "" });
@@ -27,7 +32,9 @@ class TaskForm extends React.Component<TaskFormProps, TaskFormState> {
     return (
       <form onSubmit={this.addTask}>
         <input type="text" />
-        <button type="submit">Add item</button>
+        <input  id="todoDescription" name="todoDescription" type="text" required />
+        <input id="todoDueDate" name="todoDueDate" type="date" required />
+        <button id="addTaskButton" type="submit">  Add item</button>
       </form>
     )
   }

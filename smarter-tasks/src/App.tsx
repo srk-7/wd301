@@ -1,4 +1,5 @@
 import TaskApp from "./TaskApp";
+import './App.css';
 
 function App() {
   return (
