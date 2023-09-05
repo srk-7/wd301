@@ -9,7 +9,7 @@ interface TaskItem {
   dueDate:string;
   description:string;
 }
-interface State {}
+
 
 const TaskList = (props: Props) => {
 
