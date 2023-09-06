@@ -3,8 +3,10 @@ import Task from "./Task";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 interface Props {
   tasks: TaskItem[];
+  remove: (titleid: number) => void;
 }
 interface TaskItem {
+  id: number;
   title: string;
   dueDate:string;
   description:string;
@@ -13,32 +15,18 @@ interface TaskItem {
 
 const TaskList = (props: Props) => {
 
-  const [tasks, setTasks] = useLocalStorage<Props>("tasks", {
-    tasks: [],
-  });
-
-  useEffect(() => {
-    console.log("Triggered");
-    localStorage.setItem('Tasks', JSON.stringify(tasks))
-  }, [tasks]);
-
-  const deleteTask = (idx: number) =>  {
-    const updatedTasks = [...props.tasks.slice(0, idx), ...props.tasks.slice(idx+1)]
-    setTasks({tasks: updatedTasks});
-    window.location.reload();
-  };
 
   const list = props.tasks.map((task, idx) => (
     <li>
       <Task
       key={idx}
+      id={task.id}
       title={task.title}
       description={task.description}
       dueDate={task.dueDate}
+      remove={props.remove}
       />
-      <button id="deleteTaskButton" className="deleteTaskButton" onClick={() => deleteTask(idx)}>Delete{idx}</button>      
-   
-    </li>
+  </li>
     
   ));
   return <><ol>{list}</ol></>;

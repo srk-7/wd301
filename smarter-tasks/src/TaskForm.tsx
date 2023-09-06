@@ -7,25 +7,29 @@ interface TaskFormProps {
 }
 
 interface TaskFormState {
+    id: number;
     title: string;
     dueDate: string;
     description: string;
 }
 
+var i=0;
 const TaskForm = (props: TaskFormProps) => {
   const [formState, setFormState] = React.useState<TaskFormState>({
+    id:i,
     title: "",
     description: "",
     dueDate: "",
   });
-  
+  i=i+1;
+
   const addTask: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
     if (formState.dueDate.length === 0 || formState.title.length === 0) {
       return;
     }
     props.addTask(formState);
-    setFormState({ title: "", description: "", dueDate: "" });
+    setFormState({ id:i, title: "", description: "", dueDate: "" });
   };
 
   const titleChanged: React.ChangeEventHandler<HTMLInputElement> = (event) => {
