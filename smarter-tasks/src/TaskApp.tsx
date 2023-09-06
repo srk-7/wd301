@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { TaskItem } from "./types";
 import TaskForm from "./TaskForm";
 import TaskList from "./TaskList";
-import { useLocalStorage } from "./hooks/useLocalStorage";
 
 
 interface TaskAppState {
@@ -37,7 +36,7 @@ const TaskApp = () => {
       tasks: taskAppState.tasks.filter((task) => task.id !== titleid),
     });
   };
-  
+
   return (
     <div className="container py-10 max-w-4xl mx-auto">
       <h1 className="text-3xl mb-2 font-bold text-slate-700">

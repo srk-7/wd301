@@ -1,6 +1,4 @@
-import { useEffect } from "react";
 import Task from "./Task";
-import { useLocalStorage } from "./hooks/useLocalStorage";
 interface Props {
   tasks: TaskItem[];
   remove: (titleid: number) => void;
