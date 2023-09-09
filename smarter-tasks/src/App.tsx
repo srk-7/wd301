@@ -69,7 +69,7 @@ const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: "tasks",
+        path: "/tasks",
         element: <TaskListPage />,
       },
       {
