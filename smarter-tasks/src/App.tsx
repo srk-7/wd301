@@ -38,7 +38,6 @@
 import {
   createBrowserRouter,
   Navigate,
-  redirect,
   RouterProvider,
 } from "react-router-dom";
 import HomePage from "./pages/HomePage";
