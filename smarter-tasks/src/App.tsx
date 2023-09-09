@@ -80,10 +80,6 @@ const router = createBrowserRouter([
         path: "notfound",
         element: <Notfound />,
       },
-      {
-        path: "*",
-			  element: <Navigate to="/Notfound" replace />
-      }
     ],
   }
 ]);
