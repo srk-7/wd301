@@ -77,9 +77,13 @@ const router = createBrowserRouter([
         element: <TaskDetailsPage />,
       },
       {
-        path: "*",
+        path: "notfound",
         element: <Notfound />,
       },
+      {
+        path: "*",
+			  element: <Navigate to="/Notfound" replace />
+      }
     ],
   }
 ]);
