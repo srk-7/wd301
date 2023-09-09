@@ -60,5 +60,4 @@ const TaskApp = () => {
     </div>
   );
 };
-console.log(useEffect);
 export default TaskApp;

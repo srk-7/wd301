@@ -27,6 +27,6 @@ const TaskList = (props: Props) => {
   </li>
     
   ));
-  return <><ol>{list}</ol></>;
+  return <ul>{list}</ul>;
 };
 export default TaskList;
