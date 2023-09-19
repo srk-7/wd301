@@ -145,13 +145,13 @@ import {
 import Notfound from "./pages/Notfound";
 import Signup from './pages/signup';
 import Dashboard from "./pages/dashboard";
-import Signin from './pages/Signin';
+import Signin from './pages/signin';
 import ProtectedRoute from "./ProtectedRoute";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Signup />,
+    element: <Signin />,
   },
   {
     path: "/signup",
