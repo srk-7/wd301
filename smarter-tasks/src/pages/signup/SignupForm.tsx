@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { API_ENDPOINT } from '../../config/constants';
+import { useNavigate } from 'react-router-dom';
 
 const SignupForm: React.FC = () => {
   const [organisationName, setOrganisationName] = useState('');
   const [userName, setUserName] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -20,11 +22,26 @@ const SignupForm: React.FC = () => {
       if (!response.ok) {
         throw new Error('Sign-up failed');
       }
-      console.log('Sign-up successful');
-    } catch (error) {
-      console.error('Sign-up failed:', error);
+  //     console.log('Sign-up successful');
+  //   } catch (error) {
+  //     console.error('Sign-up failed:', error);
+  //   }
+  // };
+      const data = await response.json();
+      localStorage.setItem("authToken", data.token);
+      // if successful, save the user info in localStorage
+      localStorage.setItem("userData", JSON.stringify(data.user));
+      navigate("/dashboard");
+      console.log(data);
+    }
+    catch (error) {
+      console.error("Sign-up failed:", error);
     }
   };
+    const handleSignin = (event: React.MouseEvent<HTMLButtonElement>) => {
+      event.preventDefault();
+      navigate("/signin");
+    };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -45,6 +62,9 @@ const SignupForm: React.FC = () => {
         <input type="password" name="userPassword" id="userPassword" value={userPassword} onChange={(e) => setUserPassword(e.target.value)} className="w-full border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue" />
       </div>
       <button type="submit" className="w-full bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-gray mt-4">Sign up</button>
+      <button onClick={handleSignin} className="w-half bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-gray mt-4">
+      Already have an account? SignIn
+      </button>
     </form>
   );
 };

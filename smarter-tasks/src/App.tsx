@@ -151,7 +151,7 @@ import ProtectedRoute from "./ProtectedRoute";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Signin />,
+    element: <Signup />,
   },
   {
     path: "/signup",

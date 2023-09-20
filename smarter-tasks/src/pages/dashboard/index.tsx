@@ -45,8 +45,7 @@ const Dashboard: React.FC = () => {
           type="submit"
           id="logout-link"
           onClick={signout}
-          className="w-half bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-gray mt-4"
-        >Signout</button>
+          className="w-half bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-gray mt-4">Signout</button>
       </div>
     </div>
   );
