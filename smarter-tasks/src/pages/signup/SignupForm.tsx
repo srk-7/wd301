@@ -62,9 +62,11 @@ const SignupForm: React.FC = () => {
         <input type="password" name="userPassword" id="userPassword" value={userPassword} onChange={(e) => setUserPassword(e.target.value)} className="w-full border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue" />
       </div>
       <button type="submit" className="w-full bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-gray mt-4">Sign up</button>
-      <button onClick={handleSignin} className="w-half bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-gray mt-4">
-      Already have an account? SignIn
-      </button>
+      <center>
+        <button onClick={handleSignin} className="py-5 text-blue-500">
+          Already have an account? Sign In
+        </button>
+      </center>
     </form>
   );
 };
