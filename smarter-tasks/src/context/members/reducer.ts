@@ -5,6 +5,7 @@ interface User {
     password: string;
 }
 
+
 export interface UsersState {
     users: User[];
     isLoading: boolean;
@@ -12,7 +13,10 @@ export interface UsersState {
     errMsg: string;
 }
 
+
 export type UsersActions =
+
+
     | { type: "FETCH_USERS_REQUEST" }
     | { type: "FETCH_USERS_SUCCESS"; payload: User[] }
     | { type: "FETCH_USERS_FAILURE"; payload: string }
@@ -46,6 +50,8 @@ export const reducer = (state: UsersState = initialState, action: UsersActions):
                 isError: true,
                 errMsg: action.payload,
             };
+
+
         case "ADD_USER_SUCCESS":
             return {
                 ...state,

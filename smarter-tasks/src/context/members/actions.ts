@@ -21,6 +21,7 @@ export const fetchUsers = async (dispatch: any) => {
         });
     }
 };
+
 export const addUser = async (dispatch: any, args: any) => {
     try {
         const token = localStorage.getItem("authToken") ?? "";
@@ -47,7 +48,8 @@ export const addUser = async (dispatch: any, args: any) => {
     }
 };
 
-export const delUser = async (dispatch: any, id: number) => {
+
+export const dUser = async (dispatch: any, id: number) => {
     const token = localStorage.getItem("authToken") ?? "";
     try {
         dispatch({ type: "DELETE_USER_REQUEST" });
@@ -57,12 +59,14 @@ export const delUser = async (dispatch: any, id: number) => {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${token}`,
             },
+
         });
         if (!response.ok) {
         throw new Error("Failed to delete user");
         }
         dispatch({ type: "DELETE_USER_SUCCESS", payload: id });
         return { ok: true };
+
     } catch (error) {
         console.error("Operation failed:", error);
         return { ok: false, error };

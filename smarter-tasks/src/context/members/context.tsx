@@ -8,6 +8,7 @@ const UsersDispatchContext = createContext<UsersDispatch | undefined>(
   undefined
 );
 
+
 export const UsersProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState); 
   return (
@@ -17,6 +18,7 @@ export const UsersProvider: React.FC<React.PropsWithChildren> = ({ children }) =
         </UsersDispatchContext.Provider>
     </UsersStateContext.Provider>
   );
+  
 };
 
 export const useUsersState = () => useContext(UsersStateContext);
