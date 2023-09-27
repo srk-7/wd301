@@ -1,6 +1,15 @@
+import ProjectList from "./ProjectList";
+import NewProject from "./NewProject";
+
 const Projects = () => {
-    return (
+  return (
+    <>
+    <div>
       <h2>Projects</h2>
-    )
-  }
-  export default Projects;
+      <NewProject />
+    </div>
+      <ProjectList />
+    </>
+  )
+}
+export default Projects;
