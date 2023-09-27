@@ -49,7 +49,7 @@ export const addUser = async (dispatch: any, args: any) => {
 };
 
 
-export const dUser = async (dispatch: any, id: number) => {
+export const delUser = async (dispatch: any, id: number) => {
     const token = localStorage.getItem("authToken") ?? "";
     try {
         dispatch({ type: "DELETE_USER_REQUEST" });
