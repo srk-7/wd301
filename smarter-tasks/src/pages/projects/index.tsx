@@ -4,10 +4,10 @@ import NewProject from "./NewProject";
 const Projects = () => {
   return (
     <>
-    <div>
-      <h2>Projects</h2>
-      <NewProject />
-    </div>
+    <div className="flex justify-between">
+                <h2 className="text-2xl font-medium tracking-tight">Projects</h2>
+                <NewProject />
+            </div>
       <ProjectList />
     </>
   )

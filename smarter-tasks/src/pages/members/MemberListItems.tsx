@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useUsersDispatch } from "../../context/members/context";
+import { useMembersDispatch } from "../../context/members/context";
 import { useUsersState } from "../../context/members/context";
 import { delUser } from "../../context/members/actions";
 import { SubmitHandler } from "react-hook-form";
@@ -10,7 +10,7 @@ type Sno = {
 
 export default function MemberListItems() {
     const state: any = useUsersState();
-    const dispatchUsers = useUsersDispatch();
+    const dispatchUsers = useMembersDispatch();
 
     const { users, isLoading, isError, errMsg } = state;
     console.log(users);

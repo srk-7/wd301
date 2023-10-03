@@ -3,6 +3,7 @@ import React, { createContext, useContext, useReducer } from "react";
 import { reducer, initialState, UsersState, UsersActions } from "./reducer"; 
 
 const UsersStateContext = createContext<UsersState | undefined>(undefined);
+
 type UsersDispatch = React.Dispatch<UsersActions>;
 const UsersDispatchContext = createContext<UsersDispatch | undefined>(
   undefined
@@ -22,4 +23,4 @@ export const UsersProvider: React.FC<React.PropsWithChildren> = ({ children }) =
 };
 
 export const useUsersState = () => useContext(UsersStateContext);
-export const useUsersDispatch = () => useContext(UsersDispatchContext);
+export const useMembersDispatch = () => useContext(UsersDispatchContext);
