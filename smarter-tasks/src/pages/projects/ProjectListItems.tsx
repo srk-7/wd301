@@ -14,6 +14,10 @@ export default function ProjectListItems() {
     return <span>{errorMessage}</span>;
   }
 
+  if (projects.length === 0) {
+    throw Error("Error!!!");
+  }
+  
   return (
     <>
       {projects.map((project: any) => (
