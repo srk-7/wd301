@@ -9,6 +9,7 @@ import { updateTask } from "../../context/task/actions";
 import { useUsersState } from "../../context/members/context";
 import { useProjectsState } from "../../context/projects/context";
 import { TaskDetailsPayload } from "../../context/task/types";
+import Comments from "./Comments";
 
 type TaskFormUpdatePayload = TaskDetailsPayload & {
     selectedPerson: string;
@@ -30,8 +31,6 @@ const TaskDetails = () => {
 
     let { projectID, taskID } = useParams();
     let navigate = useNavigate();
-
-    // Extract project and task details.
     const memberState = useUsersState();
     const projectState = useProjectsState();
     const taskListState = useTasksState();
@@ -42,14 +41,12 @@ const TaskDetails = () => {
     )[0];
 
     const selectedTask = taskListState.projectData.tasks[taskID ?? ""];
-    // Use react-form-hook to manage the form. Initialize with data from selectedTask.
     const [selectedPerson, setSelectedPerson] = useState(
         selectedTask.assignedUserName ?? ""
     );
     const {
         register,
         handleSubmit,
-        //formState: { errors },
     } = useForm<TaskFormUpdatePayload>({
         defaultValues: {
         title: selectedTask.title,
@@ -198,6 +195,7 @@ const TaskDetails = () => {
                         </button>
                         </form>
                     </div>
+                    <Comments />                
                     </Dialog.Panel>
                 </Transition.Child>
                 </div>
@@ -207,5 +205,4 @@ const TaskDetails = () => {
         </>
     );
 };
-
 export default TaskDetails;
