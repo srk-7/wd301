@@ -38,7 +38,7 @@ export default function MemberListItems() {
             {users.map((user: any) => (
                 <div
                 key={user.id}
-                className="member block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 flex items-center justify-between"
+                className="member suspense-loading block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 flex items-center justify-between"
                 >
                     <div>
                         <h5 className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-white">{user.name}</h5>
