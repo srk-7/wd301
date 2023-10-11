@@ -12,7 +12,7 @@ const MemberList: React.FC = () => {
     }, []);
 
     return (
-        <div className='suspense-loading grid gap-4 grid-cols-4 mt-5'>
+        <div className="suspense-loading grid gap-4 grid-cols-4 mt-5">
             <MemberListItems />
         </div>
     )
